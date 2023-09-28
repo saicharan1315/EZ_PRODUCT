@@ -1,0 +1,174 @@
+*******************************DAY-2*************************************
+
+=========================================================================
+NESTED FOR LOOP
+
+for (i=0;i<n;i++)...n+1 times
+{
+for (j=0;j<n;j++)...n*(n+1)
+{
+statements : n*n---n square
+}
+};
+
+TIME COMPLEXITY = O(n square)
+==========================================================================
+Primitive data types languages : c and java
+pre-defined data types:
+int
+float
+double
+char
+-PYTHON will n0t use primitive data types (directly use variables).
+===========================================================================
+
+Implement a 2D array and rotate the matrix 90 degress
+a = [[1,2],
+     [3,4]]
+   
+print(a[::-1])
+
+===========================================================================
+
+for(i=0;i<n;i++)
+{
+for(j=0;j<i;j++j)
+{
+Statements;
+}
+}
+
+i  j
+0 nothing
+so when i 0....0 times
+1....1 times
+2....2 times
+so 1+2+3+..+n=n(n+1)/2
+             =O(n square)
+
+===========================================================================
+p=0
+for(i=1;p<=n;i++)
+{
+p=p+i;
+}
+============================================================================
+Create a dynamic one dimensional array between 10 to 30. Extract and print
+1.EVEN NUMBERS
+2. 2 POWER NUMBERS
+Sol:
+x = int(input("Enter lower range: "))
+y = int(input("Enter upper range: "))
+print("The even numbers are")
+for i in range(x, y+1):
+    if i % 2 == 0:
+        print(i)
+print("The 2 power values are")
+for j in range(x, y+1):
+    if (j&(j-1)) == 0 and j!=0:
+        print(j)
+
+================================================================================
+TYPES OF TIME COMPLEXITY:
+1. Constant Time complexity
+2. Linear Time complexity
+3. Logarithmic Time complexity
+4. Quadratic time complexity
+5. Exponential time complexity
+=================================================================================
+SPACE COMPLEXITY:
+
+parallel concept to time complexity.
+array of size n, require O(n) space.
+
+two-dimensional array of size n*n:O(n^2)Space
+
+Linear Search                    O(1)
+Merge sort                       O(n)
+Deapth First Search(DFS)         O(n)
+Breadth First Search(BFS)        O(n)
+Dynamic Programming              O(n^2) or O(n*2)
+
+===================================================================================
+
+CONSTANT COMPLEXITY=O(1)
+same amount of space regardless of the input size n it is called constant complexity.
+eg:sum ofarray elements, linear search 
+*because space is not depending on values 
+====================================================================================
+SUM OF ARRAY ELEMENTS:
+
+def array_summer(arr):
+    total = 0
+    for item in arr:
+        total += item
+    return total
+print(array_summer([1, 2, 3, 3, 7]))
+
+====================================================================================
+
+LINEAR SEARCH:
+#include <stdio.h>
+int main()
+{
+  int array[100], search, c, n;
+
+  printf("Enter number of elements in array\n");
+  scanf("%d", &n);
+  printf("Enter %d integer(s)\n", n);
+  for (c = 0; c < n; c++)
+    scanf("%d", &array[c]);
+  printf("Enter a number to search\n");
+  scanf("%d", &search);
+  for (c = 0; c < n; c++)
+  {
+    if (array[c] == search)    
+    {
+      printf("%d is present at location %d.\n", search, c+1);
+      break;
+    }
+  }
+  if (c == n)
+    printf("%d isn't present in the array.\n", search);
+  return 0;
+}
+=====================================================================================
+LOG-LINEAR COMPLEXITY: O(nlogn)
+When the space complexity of an alogorithm grows proportionally to the input size
+and a logarithmic factor
+
+log(), it is called log_linear complexity.
+eg: merge sort
+log(n) log linear complexity
+======================================================================================
+POLYNOMIAL COMPLEXITY: O(n 2):
+space complexity grows proportionally to the square of the input size
+
+PROGRAM:
+def generate_lists_of_lists(n):
+    table_list = []
+    for num in range(n):
+        row = []
+        for i in range(n):
+            row =[]
+            for i in range(n):
+                row.append(i)
+            table_list.append(row)
+        return table_list
+print(generate_lists_of_lists(10))
+=========================================================================================
+#include<stdio.h>
+struct a{
+	int x;
+	double y;
+	char z;
+};
+int main()
+{
+	struct a yes;
+	printf("%d",sizeof(yes));
+	return 0;
+}
+
+FOR DIFFERENT COMBINATIONS
+==========================================================================================
