@@ -1,0 +1,148 @@
+*******************************DAY3*****************************
+
+print(10*4/6+3-1%2)
+In python we get = 8.666666
+
+BIT WISE OPERATORS:
+C          PYTHON             JAVA
+
+&          and                  &     -- AND 
+|           |                   |     -- OR
+~           ~                   ~     -- NEGATION
+^           ^                   ^     -- XOR
+==================================================================
+CREATE AN ONE DIMENSIONAL ARRAY B/W 10 TO 40. EXTRACT AND PRINT 
+1. Even Numbers
+2. 2 Power values
+
+x = int(input("Enter initial value: "))
+y = int(input("Enter ending value: "))
+print("Here is available even numbers")
+for i in range(x, y+1):
+    if i % 2 == 0:
+        print(i)
+print("Here is 2 power values")
+for j in range(x, y+1):
+    if (j&(j-1)) == 0 and j!=0:
+        print(j)
+======================================================================
+
+
+We Have done some problems on Bit Wise Operators and XOR operations.(in notes) 
+
+=======================================================================
+BIT MANIPULACTION TRICKS:
+xor ^
+even 1's :0
+odd 1's  :1
+
+xor of number itself is 0
+xor of number with 0 is number itself
+=======================================================================
+ RIGHT SHIFT:
+
+5>>1
+5/2 
+ANS:2
+=======================================================================
+After creating an array find out the smallest missing positive integer
+without using inbuilt functions
+
+def positive(nums):
+    new = [num for num in nums if num >= 0]
+    new.sort()
+    small = 0
+    for num in new:
+        if num == small:
+            small += 1
+        else:
+            break
+
+    return small
+my_array = [1,5,-2,]
+result = positive(my_array)
+print("The smallest missing positive integer is:", result)
+============================================================================
+
+In the given array every integer occurs twice one element occurs once.
+def findsingle(ar, n):
+    res = ar[0]
+    for i in range(1,n):
+        res = res^ar[i]
+    return res
+ar=[1,5,1,2,3,2,3]
+print(findsingle(ar,len(ar)))
+=================================================================================
+SWAPPING TWO NUMBERS using XOR 
+a=100
+b=200
+print("a:",a,"b:",b)
+
+a=a^b #a=100^200
+b=a^b #b=100^200^200 ans 200 200 cancelled b=100
+a=a^b #a=100^200^100 ans 100 gets cancelled a=200
+
+print("a:",a,"b:",b)
+=======================================================================================
+For the given number 'n' check the kth bit is set or not.
+
+n=int(input("Enter a number:"))
+k=int(input("Enter bit pos:"))
+if  (n>>k)%2==1:
+    print("SET")
+else:
+    print("NOT SET")
+======================================================================================
+n=12
+xor=0
+for i in range(1,n+1):
+    xor=xor^i
+print(xor)
+======================================================================================
+
+n=7
+xor=0
+if n%4==0:
+    print(n)
+elif n%4==1:
+    print(1)
+elif n%4==2:
+    print(n+1)
+elif n%4==3:
+    print(0)
+====================================================================================
+CHECK NUMBER IS ODD OR EVEN
+
+n=13
+
+if (n&1 == 0):
+    print("Even")
+else:
+    print("Odd")
+====================================================================================
+
+#include <stdio.h>
+
+void towerOfHanoi(int n, char source, char auxiliary, char destination) {
+    if (n == 1) {
+        printf("Move disk 1 from %c to %c\n", source, destination);
+        return;
+    }
+
+    towerOfHanoi(n - 1, source, destination, auxiliary);
+    printf("Move disk %d from %c to %c\n", n, source, destination);
+    towerOfHanoi(n - 1, auxiliary, source, destination);
+}
+
+int main() {
+    int num_disks;
+    
+    printf("Enter the number of disks: ");
+    scanf("%d", &num_disks);
+    
+    towerOfHanoi(num_disks, 'A', 'B', 'C');
+    
+    return 0;
+}
+
+
