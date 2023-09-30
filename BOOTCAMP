@@ -1,0 +1,68 @@
+-> PYTHON
+-> STACK
+-> LINKEDLIST
+-> RECALLING THE BASICS OF PYTHON AND THE DATA STRUCTURES CONCEPT WITH SOME EXAMPLES 
+-> SOME PROGRAMS :
+=========================================================================================================
+create one class , which consists of three variables with initilazation and you have to take 2 methods.
+its a two augumented function, first string type, second int type and inside of the method we need to
+print the reverse of the string value. J have to print square of the integer argument value as already
+given in the question. 2nd method [the name of method is DisplayResults inside of the method length 
+a tring , print modulo division of 2 integers . And pass the values at runtime
+
+class A:
+    a = 1
+    b = "Sai"
+    c = 3
+
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def rev(self, x, y):
+        print("REVERSE OF THE STRING: ", x[::-1])
+        print("SQUARE OF THE NUMBER: ", y**2)
+
+    def displayResult(self):
+        print("LENGTH OF THE STRING: ", len(self.b))
+        print("a % c =", self.a % self.c)
+
+a = int(input("Enter a number: "))
+b = input("Enter string: ")
+c = int(input("Enter another number: "))
+obj = A(a, b, c)
+obj.rev(b, a)
+obj.displayResult()
+
+====================================================================================================
+class A:
+    x = 10
+    __y = 20
+    
+    def s(self):
+        print("add")
+    def work(self,x):
+        self.x=x
+        print(x)
+        
+class B(A):
+    print("hi")
+    
+    
+    
+obj = B()
+print(obj.x)
+obj.s()
+obj.work(50)
+===================================================================================================
+from collections import deque
+l=deque()
+n = int(input("enter no of elements"))
+for i in range(n):
+    l.append(int(input("enter a element")))
+print(l)
+for i in range(n):
+    print(l.pop(0))
+
+print(l)
