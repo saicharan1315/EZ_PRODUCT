@@ -1,0 +1,50 @@
+-> MAGIC SQUARE MATRIX PROBLEM 
+1. Sum of rows 
+2. Sum of columns 
+3. Sum of Diagonals Should be same 
+We have seen the theoritical part and implemented the problem
+CODE:
+def generate_magic_square():
+    n = int(input("Enter the value you want magic matrix: "))
+    magic_square = [[0] * n for _ in range(n)]
+    num = 1
+    row, column = 0, n // 2
+    while num <= n*n:
+        magic_square[row][column] = num
+        num += 1
+        newrow, newcolumn = (row - 1) % n, (column + 1) % n
+        if magic_square[newrow][newcolumn]:
+            row = (row + 1) % n
+        else:
+            row, column = newrow, newcolumn
+    return magic_square
+def print_magic_square(magic_square):
+    for row in magic_square:
+        for num in row:
+            print(num, end="\t")
+        print()
+if _name_ == "_main_":
+    magic_square = generate_magic_square()
+    print(f"{len(magic_square)}X{len(magic_square)} Magic Square with Diagonal Movement:")
+    print_magic_square(magic_square)
+========================================================================================================
+ONLINE:
+SUBSET SUM 
+def a(arr,n,target):
+    if target == 0:
+        
+return True
+    if n==0 and target!=0:
+        
+return False
+    if arr[n-1]>target:
+        
+return a(arr,n-1,target)
+    return a(arr,n-1,target) or a(arr,n-1,target-arr[n-1])
+arr = list(map(int,input().split(" ")))
+target= int(input())
+n = len(arr)
+if a(arr, n, target):
+    print("True")
+else:
+    print("False")
