@@ -1,0 +1,91 @@
+*******************DAY-7********************
+
+SELECTION SORT:
+
+LOGIC:
+
+for(i=0;i<arr.length;i++)
+{
+  for(j=i+1;j<arr.length;j++)
+    {
+      if(arr[i]>arr[j])
+         {
+           t=arr[i]
+           arr[i]=arr[j];
+           arr[j]=t;
+         }
+     }
+}
+
+PROGRAM :
+def selection_sort(lst):
+    for i in range(len(lst)):
+        min_index=i
+        for j in range(i+1, len(lst)):
+            if lst[j]<lst[min_index]:
+                min_index=j
+        lst[i],lst[min_index]=lst[min_index],lst[i]
+    for i in range(len(lst)):
+        print(lst[i],end=' ')
+lst=list(map(int,input().split()))
+selection_sort(lst)                        
+
+TIME COMPLEXITY : O(n^2)
+================================================
+QUICK SORT:
+
+def quick_sort(lst):
+    if len(lst)<1:
+        return lst
+    else:
+        pv=lst[0]
+        left_lst=[i for  i in lst if i<pv]
+        right_lst=[i for i in lst if i>pv]
+        return quick_sort(left_lst)+[pv]+quick_sort(right_lst)
+    print(lst[i],end=' ')
+lst=list(map(int,input().split()))
+print(quick_sort(lst))
+=================================================================
+MERGE SORT:
+
+def merge_sort(lst):
+    if len(lst)<=1:
+        return lst
+    else:
+        mid=len(lst)//2
+        left=lst[:mid]
+        right=lst[mid:]
+        merge_sort(left)
+        merge_sort(right)
+        i=j=k=0
+        while i<len(left) and j<len(right):
+            if left[i]<right[j]:
+                lst[k]=left[i]
+                i+=1
+                k+=1
+            else:
+                lst[k]=right[j]
+                j+=1
+                k+=1
+        while i<len(left):
+            lst[k]=left[i]
+            i+=1
+            k+=1
+        while j<len(right):
+            lst[k]=right[j]
+            j+=1
+            k+=1
+lst=list(map(int,input().split()))
+merge_sort(lst)
+print(lst)
+=======================================================================
+COUNT INVERSIONS:
+l=[6,3,9,2,1]
+c=0
+for i in range(len(l)):
+    for j in range(i+1,len(l)):
+        if l[i]>l[j]:
+            c+=1
+print(c)
+
+====================================================================
