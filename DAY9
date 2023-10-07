@@ -1,0 +1,166 @@
+*******************************DAY-9*********************************
+
+Input :  7564168
+example: separate odd place integers : 5 4 6 
+you have to return a 4 digit OTP by squaring the digits .
+digits from above example : 5 4 6
+squares: 25,16,36
+so OTP to be returned is first four digits :2516
+write a python program for above given problem
+
+PROGRAM:
+n=input()#7564168
+op=''
+for i in range(1,len(n),2):
+    op+=str(int(n[i])**2)
+print(op[:4])
+
+=========================================================================================
+
+Take the input from the user in the given format (consist of name and code) find the max digit 
+from the code which is less or equal to the length of string and put that place char in final 
+string, if there is no any digit found which not satisfy the condition that simply put 'x'.
+input:
+Abhishek:43848, Mayur:3749,Friend:3949,Yeah:7878
+Output:kueX
+
+PROGRAM:
+
+s=input()#"Abhishek:43848,Mayur:3749,Friend:3949,Yeah:7878"
+los=s.split(',')
+op=''
+for i in los:
+    nc=i.split(':')
+    name=nc[0]
+    code=nc[1]
+    l=len(name)
+    max=0
+    d=0
+    for i in code:
+        if int(d)>max and int(d)<=len(name):
+            max=int(d)
+    if max==0:
+        op+='X'
+    else:
+        op+=name[max-1]
+print(op)
+============================================================================================
+BALANCED BRACKETS PROBLEM:
+
+input:()()
+output:0
+input:((())
+output:6
+input:{(){}[]}(}
+output:10
+input:{[()}
+oupput:5
+
+PROGRAM:
+def demo(s):
+    c=0
+    l=[]
+    for i in s:
+        if i=='[' or i=='{' or i=='(':
+            l.append(i)
+            c+=1
+            continue
+        if len(l)==0:
+            return c+1
+        temp=l.pop()
+        if temp=='(' and i==')':
+            c+=1
+        elif temp=='[' and i==']':
+            c+=1
+        elif temp=='{' and i=='}':
+            c+=1
+        else:
+            return c+1
+    if len(l)==0:
+        return 0
+    else:
+        return c+1
+s=input()
+if __name__ == '__main__':
+    print(demo(s))
+========================================================================================
+#srin#ivas
+def demo(s):
+    l=[]
+    for i in s:
+        if i.isalpha():
+            l.append(i)
+        else:
+            spc=i
+            idxspc=s.index(i)
+    l.reverse()
+    l.insert(idxspc,spc)
+    return ''.join(l)
+s=input()
+print(demo(s))
+=========================================================================================
+def demo(s): #2,5,1,4,3,2,7,8
+    los=s.split(',')
+    idxpof=los.index('4')
+    idxpos=los.index('7')
+    n1,n2=0,''
+    for i in los[:idxpof]+los[idxpos+1:]:
+        n1+=int(i)
+    for i in los[idxpof:idxpos+1]:
+        n2+=i
+    return (n1+int(n2))
+s=input()
+if _name=='__main_':
+    print(demo(s))
+==========================================================================================
+TWO POINTERS APPROACH:(2 POINTERS IN ONE LOOP)
+Problem:#1 (TWO SUM PROBLEM)
+arr[]={2,3,5,7,10,12,15,20}, target=19
+Answer: 4, 6
+Explanation:
+return i and j th pointer positions whose sum of indexed values equals to target
+20
+
+PROGRAM:
+def binary_search(arr,target):
+    left,right=0,len(arr)-1
+    floor=-1
+    while left<=right:
+        mid=left+(right-left)//2
+        if arr[mid]==target:
+            return arr[mid]
+        elif arr[mid]<target:
+            floor=arr[mid]
+            left=mid+1
+        else:
+            right=mid-1
+    return floor
+===========================================================================================
+def binary_search_floor(arr,target):
+    left,right=0,len(arr)-1
+    floor=-1
+    while left<=right:
+        mid=left+(right-left)//2
+        if arr[mid]==target:
+            return arr[mid]
+        elif arr[mid]<target:
+            floor=arr[mid]
+            left=mid+1
+        else:
+            right=mid-1
+    return floor
+print(binary_search_floor([1,2,8,10,10,12,19],7))
+=============================================================================================
+
+Problem Statement:
+You are given an array of N integers and another integer K;
+n,k=map(int,input().split())
+lst=[]
+for i in range (n):
+    lst.append(int(input()))
+s,c=set(lst),0
+for i in s:
+    if lst.count(i)>=k:
+        c+=1 
+print(c)
+    
