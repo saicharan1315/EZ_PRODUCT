@@ -1,0 +1,75 @@
+****************************DAY-10********************************
+
+MAGICSQUARE MATRIX:
+
+1. Row sum
+for row in arr:
+    if sum(row) != 15:
+        return False
+
+2. Column Sum:
+for i in range(len(arr)):
+    temp = 0
+    for j in range(len(arr))
+        temp += arr[j][i]
+    if temp != 15:
+        return False
+
+3. Diagonal 1 sum:
+for i in range(len(arr)):
+    for j in range(len(arr))
+        if i == j:
+            temp += arr[i][j]
+if temp != 15:
+    return False
+
+4. Diagonal 2 sum:
+i=0, j=n-1
+while i < n and j >=0:
+    temp += arr[i][j]
+    i += 1
+    j -= 1
+if temp != 15;
+    return False
+
+PROGRAM:
+def generate(n):
+    arr = [[0 for i in range(n)] for j in range(n)]
+    i = n//2
+    j = n-1
+    num = 1
+    while num <= (n*n):
+        if i < 0 and j > n-1: #3rd condt
+            i = 0
+            j = n-2
+        else:
+            if i<0:
+                i = n-1
+            if j > n-1:
+                j = 0
+        if arr[i][j] != 0:
+            i += 1 
+            j -= 2 
+            continue
+        else:
+            arr[i][j] = num
+            num = num+1
+        i = i-1
+        j = j+1
+        
+    for row in arr:
+        print(row)
+    
+    
+n = 4
+generate(n)
+
+RULES:
+1) (i) calculate the position as (n/2, n-1) = (x,y)
+  (ii) calculate the further position values as (x-1, y+1) => (i,j)
+2) either i or j, go out of the range (0,1,...n-1) then wrap around
+   (if i is less than 0, make i= n-1)
+    (if j is greater than n-1, make j=0)
+3) if i and j both go out of the range( eg: i<0 and j>n-1)
+   then (i, j) => (0, n-2)
+
