@@ -1,0 +1,12 @@
+ARRAY ROTATION:
+
+def rotate_array(arr, positions):
+    n = len(arr)
+    positions = positions % n
+    rotated_array = arr[-positions:] + arr[:-positions]
+    return rotated_array
+original_array = [1, 2, 3, 4, 5]
+rotated_array = rotate_array(original_array, 2)
+print("Original Array:", original_array)
+print("Rotated Array:", rotated_array)
+
