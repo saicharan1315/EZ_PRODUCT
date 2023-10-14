@@ -1,0 +1,22 @@
+*********************************DAY-13***********************************
+
+def isPalindrome(str):
+    if len(str)==1 or len(str)==0:
+        return True
+    if str[0]!=str[-1]:
+        return False
+    retrun isPalindrome(str[1:len(str)-1])
+
+==========================================================================
+arr = [1,2,3]
+
+def perm(string,i=0):
+    if i==len(string):
+        print("".join(string))
+    for j in range(i,len(string)):
+        words=[c for c in string]
+        words[i],words[j]=words[j],words[i]
+        perm(words,i+1)
+a=input()
+perm(a)
+============================================================================
