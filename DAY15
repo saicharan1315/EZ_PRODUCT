@@ -1,0 +1,71 @@
+**************************************DAY-15****************************************
+
+M = 4
+
+                *
+               ***
+              *****
+             *******
+row = m
+col = 2*m-1
+
+for i in range(row):
+for j in range(col):
+if     :
+  print("*")
+else:
+  print(" ")
+===========================================================================================
+
+def circle(n):
+    row = n
+    col = n
+    for i in range(row):
+        for j in range(col):
+            if i==j or (i+j) == n-1:
+                print(" ",end=" ")
+            else:
+                print("*",end=" ")
+        print()
+circle(4)
+==========================================================================================
+def circle(n):
+    row =n
+    col=n
+    for i in range(row):
+        for j in range(col):
+            if i==j or (i+j)==n-1:
+                print(" ",end=" ")
+            elif i==0 or i==n-1 or j==0 or j==n-1:
+                print("*",end=" ")
+            else:
+                print(" ",end=" ")
+        print()
+circle(5)
+===========================================================================================
+def upperTriangle(n):
+    char='a'
+    for i in range(1,n-1):
+        for j in range(i):
+            print(char,end=" ")
+            char = chr(ord(char)+1)
+            if char>'z':
+                char='a'
+        print()
+upperTriangle(32)
+============================================================================================
+git clone - to clone the repo
+git checkout - to <branch-name> - to checkout to a new branch
+git add - to add your changes to the local repo
+git status - to see all the changes to the local repo
+git commit
+git push origin 
+============================================================================================
+
+
+git add .
+git commit -m "circle progtram changes"
+git pull
+git push --set-upstream origin test1
+
+*********************************************
