@@ -1,0 +1,84 @@
+Hashmap 
+
+We have solved some leetcode problems.
+======================================================================
+Nearby Duplicate:
+
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        map={}
+        for i in range(len(nums)):
+            if nums[i] in map:
+                if abs(i-map[nums[i]])<=k:
+                    return True
+            map[nums[i]]=i
+        return False
+============================================================================
+MAJORITY ELEMENTS :
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        n=len(nums)/3
+        map={}
+        a=[]
+        for i in nums:
+            if i in map:
+                map[i]=map[i]+1
+            else:
+                map[i]=1
+        for i in map:
+            if map[i]>n:
+                a.append(i)
+        return a
+==================================================================================
+PRODUCT EXCEPT SELF:
+
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        pro=1
+        zero=0
+        count=0
+        result=[]
+        for i in nums:
+            if i==0:
+                zero=1
+                count=count+1
+                continue
+            else:
+                pro=pro*i
+        if count>1:
+            pro=0
+        if zero:
+            for i in nums:
+                if i==0:
+                    result.append(pro)
+                    continue
+                result.append(0)
+        else:
+            for i in nums:
+                result.append(int(pro/i))
+        return result
+================================================================================
+SLIDING WINDOW MAXIMUM:
+
+class Solution:
+    def maxSlidingWindow(self, nums,k):
+        N = len(nums)
+        if k == 1:
+            return nums
+        
+        w_start = 0
+        w_max = float('-inf')
+        all_window_maxes = []
+        
+        for w_end in range(N):
+            w_max = max(w_max, nums[w_end])
+            
+            if w_end >= k-1:
+                all_window_maxes.append(w_max)
+                
+                if nums[w_start] == w_max:
+                    w_max = max(nums[w_start+1:w_end+1])
+                w_start += 1
+        
+        return all_window_maxes
